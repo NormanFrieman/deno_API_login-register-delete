@@ -20,3 +20,9 @@ export const listAll = async (): Promise<User[]> => {
     
     return users
 }
+
+export const deleteUser = async (user_name: String): Promise<void> => {
+    const users = await listAll()
+    const verification = users.filter(user => user.user_name !== user_name)
+    persistData(verification)
+}
