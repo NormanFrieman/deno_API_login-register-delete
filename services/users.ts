@@ -14,3 +14,9 @@ export const createUser = async (userData: UserData): Promise<void> => {
 
     await persistData([...users, newUser])
 }
+
+export const listAll = async (): Promise<User[]> => {
+    const users = await fetchData()
+    
+    return users
+}
